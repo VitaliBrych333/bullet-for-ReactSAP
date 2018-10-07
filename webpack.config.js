@@ -13,7 +13,7 @@ module.exports = {
         {
           test: /\.html$/,
           use: {
-            loader: "babel-loader",
+            loader: "html-loader",
           }
           // enforce: "pre",
           // test: /\.js$/,
@@ -23,11 +23,14 @@ module.exports = {
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          loader: "babel-loader",
+          use: {
+            loader: "babel-loader",  
+          }
+         
         },
     ]
-  }
-  plugin: [
+  },
+  plugins: [
     new HtmlWebPackPlugin({
       template: "./src/index.html",
       filename: "./index.html"
